@@ -86,7 +86,9 @@ This program provides a command-line interface that allows users to create and m
 #### help
  Show the help message.
 
-## Definition and Details- GNU Readline Library- See `*.h`
+## Definition and Details- 使用 GNU Readline Library- See `*.h`
+- `data_structure.h`  - 建立 "LinkedList" 類別，作為一串 List 使用
+    - 定義基本操作方法，包含取得長度、取得節點、增刪節點  - 建立 "LinkedListNode" 結構，為 LinkedList 之節點  - 建立 "LinkedListData" 結構，為 LinkedListNode 之資料存放區    - 可選擇 "number" 存放一整數，或 "list" 結構存放一 LinkedList 物件      - 其中 "list" 結構要能存放 (字串)鏈表名稱 與 (指標)LinkedList物件- 主程式一開始即宣告一個名為 lists 的 LinkedList，用來存放之後建立的所有 LinkedList
 ## Discussion and Conclusion
 我不會寫程式 > <
 
