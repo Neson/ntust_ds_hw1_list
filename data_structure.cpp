@@ -67,14 +67,14 @@ void LinkedList::insertNode(LinkedListData data) {
 
 
 void LinkedList::insertNode(int n, LinkedListData data) {
-	if (n < 0)
-		n = 0;
-	if (n > _length)
-		n = _length;
+	if (n < 1)
+		n = 1;
+	if (n > _length+1)
+		n = _length+1;
 	LinkedListNode *new_node=(LinkedListNode *)malloc(sizeof(LinkedListNode));
 	new_node->data = data;
 
-	if (n == 0) {  // if first node
+	if (n == 1) {  // if first node
 		if (n < _length)
 			new_node->next = _head;
 		else
@@ -85,7 +85,7 @@ void LinkedList::insertNode(int n, LinkedListData data) {
 		LinkedListNode *insert_after=_head;
 		int i=1;
 		while (insert_after->next) {  // jump to nth node
-			if (i == n)
+			if (i == n-1)
 				break;
 			insert_after = insert_after->next;
 			i++;

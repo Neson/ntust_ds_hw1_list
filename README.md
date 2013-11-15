@@ -32,21 +32,61 @@ make clean
 
 ## Usage
 
-commands:
+This program provides a command-line interface that allows users to create and manipulate linked-lists. The available commands are listed below.
 
-`create`: create a new list  
-`list`: print out all lists  
-`destroy`: delete a list  
-`select`: select a list to use  
-`use`: same as 'select'  
-`add`: add an item at the end of the list  
-`insert`: insert an item after the nth item  
-`delete`: delete the nth item of the list  
-`clear`: delete all items from the list  
-`get`: get the nth item of the list  
-`find`: find an item from the list  
-`print`: print out the list  
-`quit`: quit this application  
-`help`: show the help message  
+### commands
+
+#### create
+ Create a new list.  
+ Usage: `create <new_list_name>`.
+
+#### list
+ Print out all lists.
+
+#### destroy
+ Delete a list.  
+ Usage: `destroy <list_to_destory>`.
+
+#### select
+ Select a list to use. The selected list will be shown in the prompt.  
+ Usage: `select <list_name>`.
+
+#### use
+ Same as 'select'.
+
+#### add
+ Add an node/nodes at the end of the selected list.  
+ Usage: `add <data> [data2] [data3] [...]`.
+
+#### insert
+ Insert an node to the nth position of the selected list.  
+ Usage: `insert <n> <data>`.
+
+#### delete
+ Delete the nth node of the selected list.  
+ Usage: `delete <n>`.
+
+#### clear
+ Delete all nodes from the selected list.
+
+#### get
+ Get the nth item from the selected list.  
+ Usage: `get <n>`.
+
+#### find
+ Find an node with its data from the selected list.  
+ Usage: `find <data>`.
+
+#### print
+ Print out the selected list.
+
+#### quit
+ Quit this application.
+
+#### help
+ Show the help message.
+
+## Definition and Details- GNU Readline Library- See `*.h`
 ## Discussion and Conclusion
 我不會寫程式 > <
+

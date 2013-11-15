@@ -65,13 +65,13 @@ int main ()
 		}
 
 		else if (!strcmp(token, "help")) {
-			printf("commands: \n\tcreate\t create a new list \n\tlist\t print out all lists \n\tdestroy\t delete a list \n\tselect\t select a list to use \n\tuse\t same as 'select' \n\tadd\t add an item at the end of the list \n\tinsert\t insert an item after the nth item \n\tdelete\t delete the nth item of the list \n\tclear\t delete all items from the list \n\tget\t get the nth item of the list \n\tfind\t find an item from the list \n\tprint\t print out the list \n\tquit\t quit this application \n\thelp\t show this message \n");
+			printf("commands: \n\tcreate\t create a new list \n\tlist\t print out all lists \n\tdestroy\t delete a list \n\tselect\t select a list to use \n\t \t the selected list will be shown in the prompt \n\tuse\t same as 'select' \n\tadd\t add an node/nodes at the end of the selected list \n\tinsert\t insert an node to the nth position of the selected list \n\tdelete\t delete the nth node of the selected list \n\tclear\t delete all nodes from the selected list \n\tget\t get the nth node from the selected list \n\tfind\t find an node with its data from the selected list \n\tprint\t print out the selected list \n\tquit\t quit this application \n\thelp\t show this message \n");
 		}
 
 		else if (!strcmp(token, "create")) {
 			token = strtok(NULL, " ");  // next token (list name)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: create new_list_name\n");
+				printf("usage: create <new_list_name>\n");
 				continue;
 			}
 			tmp_llnp = lists.head();
@@ -107,7 +107,7 @@ int main ()
 		else if (!strcmp(token, "destroy")) {
 			token = strtok(NULL, " ");  // next token (list name)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: destroy name_of_list_to_destory\n");
+				printf("usage: destroy <list_to_destory>\n");
 				continue;
 			}
 
@@ -118,7 +118,7 @@ int main ()
 				i++;
 				if (!strcmp(token, tmp_llnp->data.list.name)) {
 					tmp_llp = (LinkedList *)tmp_llnp->data.list.pointer;
-					tmp_llp->clear();  // clear the list
+					tmp_llp->clear();  // clear the selected list
 
 					if (current_list_name && !strcmp(current_list_name, tmp_llnp->data.list.name)) {
 						current_list_name = NULL;
@@ -140,7 +140,7 @@ int main ()
 		else if (!strcmp(token, "select") || !strcmp(token, "use")) {
 			token = strtok(NULL, " ");  // next token (list name)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: select list_name\n");
+				printf("usage: select <list_name>\n");
 				continue;
 			}
 			success = false;
@@ -158,7 +158,6 @@ int main ()
 				printf("Using list '%s'.\n", current_list_name);
 			else
 				printf("List '%s' does not exists! Enter 'create %s' if you want to create it.\n", token, token);
-
 		}
 
 		else if (!strcmp(token, "add")) {
@@ -168,7 +167,7 @@ int main ()
 			}
 			token = strtok(NULL, " ");  // next token (data to add)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: add data_number\n");
+				printf("usage: add <data> [data2] [data3] [...]\n");
 				continue;
 			}
 			while (token) {
@@ -186,7 +185,7 @@ int main ()
 
 			token = strtok(NULL, " ");  // next token (where to insert)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: insert index data_number\n");
+				printf("usage: insert <n> <data>\n");
 				continue;
 			}
 			n = atoi(token);
@@ -212,7 +211,7 @@ int main ()
 
 			token = strtok(NULL, " ");  // next token (which to delete)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: delete index\n");
+				printf("usage: delete <n>\n");
 				continue;
 			}
 
@@ -240,7 +239,7 @@ int main ()
 
 			token = strtok(NULL, " ");  // next token (which to get)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: get index\n");
+				printf("usage: get <n>\n");
 				continue;
 			}
 			n = atoi(token);
@@ -256,7 +255,7 @@ int main ()
 
 			token = strtok(NULL, " ");  // next token (what to find)
 			if (!token || !strcmp(token, "")) {
-				printf("usage: find data\n");
+				printf("usage: find <data>\n");
 				continue;
 			}
 			n = atoi(token);
@@ -299,7 +298,7 @@ int main ()
 					tmp_llnp = tmp_llnp->next;
 					i++;
 				}
-				printf("Total of %d member(s).\n", current_list->length());
+				printf("Total of %d node(s).\n", current_list->length());
 			}
 		}
 
