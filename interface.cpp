@@ -69,7 +69,7 @@ static char* argument_generator(const char *text, int state)
 }
 
 
-char** list_completion(char *text, int start, int end)
+const char** list_completion(char *text, int start, int end)
 {
 	char **matches = NULL;
 
@@ -78,7 +78,7 @@ char** list_completion(char *text, int start, int end)
 	else
 		matches = rl_completion_matches(text, argument_generator);
 
-	return (matches);
+	return ((const char **)matches);
 }
 
 

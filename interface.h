@@ -8,6 +8,6 @@ void initialize_readline();  // Function to initialize GNU Readline
 
 char *rl_gets(const char *text);  // Get command from terminal
 
-char** list_completion(char*, int, int);  // Do completion
+const char** list_completion(char*, int, int);  // Do completion
 
 extern char *commands[];  // Commands
