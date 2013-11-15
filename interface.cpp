@@ -85,6 +85,6 @@ const char** list_completion(char *text, int start, int end)
 void initialize_readline()
 {
 	rl_readline_name = (char *)"list";
-	rl_attempted_completion_function = (CPPFunction *)list_completion;
+	rl_attempted_completion_function = (char** (*)(const char*, int, int))list_completion;
 	return ;
 }
